@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Various console.log functions</title>
+        <body>
+            <p><h2>1)console.log()</h2>
+            function that writes a message to log on the debugging console.<br>
+            Example:<br>
+            console.log("Nancy")<br>
+            <h2> 2)console.error()</h2>
+            Used to log error message to the console. Useful in testing of code. By default the error message will be highlighted with red color.<br>
+            Example:<br>
+            console.error("Hey!! There is an error!)"<br>
+            <h2>3)console.warn()</h2>
+            Used to log warning message to the console. By default the warning message will be highlighted with yellow color.<br>
+            Example:<br>
+            console.warn("Warning!!!")<br>
+            <h2>4)console.clear()</h2>
+        Used to clear the console. The console will be cleared, in case of Chrome a simple overlayed text will be printed like : ‘Console was cleared’ while in firefox no message is returned.<br>
+        Example:<br>
+        console.clear();<br><h2>5)console.time() and console.timeEnd()</h2>
+Whenever we want to know the amount of time spend by a block or a function, we can make use of the time() and timeEnd() methods provided by the javascript console object. They take a label which must be same, and the code inside can be anything( function, object, simple console).<br>
+Example:<br>
+console.time("test1");<br>
+for (i = 0; i < 100000; i++) {<br>
+  // some code<br>
+}<br>
+console.timeEnd("test1");<br>
+<h2>6)console.table()</h2>
+This method allows us to generate a table inside a console. The input must be an array or an object which will be shown as a table.<br>
+Example:<br>
+console.table(["Apple", "Mango", "Pineapple","Banana","Cherry"]);<br>
+<h2>7)console.count()</h2>
+This method is used to count the number that the function hit by this counting method<br>
+Example:<br>
+for (i = 0; i < 10; i++) {<br>
+    console.count();<br>
+  }<br>
+  <h2>8)console.group() and console.groupEnd()</h2>
+group() and groupEnd() methods of the console object allows us to group contents in a separate block, which will be indented. Just like the time() and the timeEnd() they also accepts label, again of same value.<br>
+Example:<br>
+console.log("Hello world!");<br>
+console.group();<br>
+console.log("Hello again, this time inside a group!");<br>
+</body>
+    </head>
+</html>
