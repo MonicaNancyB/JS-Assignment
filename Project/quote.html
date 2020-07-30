@@ -1,0 +1,83 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quote Generator</title>
+<link rel="icon" type="image/png" href="sam.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script>
+var Quotes = ['If we had no winter, the spring would not be so pleasant: if we did not sometimes taste of adversity, prosperity would not be so welcome.','Prosperity makes friends, adversity tries them','Virtue is not left to stand alone. He who practices it will have neighbors.','Fear cuts deeper than swords',"You only live once, but if you do it right, once is enough.","I am so clever that sometimes I don't understand a single word of what I am saying","Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.","The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science."];
+var Authors = ['Anne Bradsteet','Publilius Syrus','Confucius', 'George R.R. Martin, A Game of Thrones',"Mae West","Oscar Wilde","Albert Einstein", '']
+var Colours = ['#EC7063','#AF7AC5','#3498DB','#1ABC9C','#F4D03F','#D35400','#BDC3C7'];
+var Colours2 = ['#641E16','#512E5F','#154360', '#0B5345', '#7E5109', '#6E2C00', '#7B7D7D'];
+
+  function newQuote(){
+    var RandomNumber = Math.floor(Math.random()*Quotes.length);
+    var matter = Quotes[RandomNumber]+" - "+Authors[RandomNumber];
+    $("#QuoteDisplay").text(Quotes[RandomNumber]);
+    $("#AuthorDisplay").text(Authors[RandomNumber]);
+    $(".wrapper").css("background-color",Colours[Math.floor(Math.random()*Colours.length)]);
+    $("body").css("background-color",Colours2[Math.floor(Math.random()*Colours2.length)]);
+    $('#tweetBtn iframe').remove();
+    // Generate new markup
+    var tweetBtn = $('<a></a>')
+        .addClass('twitter-share-button')
+        .attr('href', 'http://twitter.com/share')
+        .attr('data-url', 'http://samriddhisinha.in/quotes')
+        .attr('data-text', matter)
+        .attr('data-via', 'samdjokester')
+        .attr('data-size', 'large')
+        .attr('data-hashtags', 'quotes')
+        .attr('data-lang', 'en')
+        .attr('data-show-count', 'true');
+    $('#tweetBtn').append(tweetBtn);
+    twttr.widgets.load();
+  }
+
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa');
+@import url('https://fonts.googleapis.com/css?family=Damion');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+
+#QuoteDisplay{
+font-family: 'Aref Ruqaa', serif;
+font-size:300%;
+}
+
+#AuthorDisplay{
+font-family: 'Pacifico', cursive;
+font-size:300%;
+}
+.wrapper{
+  margin:10%;
+  background-color: blue;
+  padding: 2%;
+  border-radius: 10%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.btn-lg{
+  background-color:rgba(0,0,0, 0.8);
+  color: white;
+  font-family: 'Damion', cursive;
+  font-size:306%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+</style>
+</head>
+<body style="background-color: brown;">
+
+<div class="wrapper text-center">
+<strong><p id = "QuoteDisplay">Every fairy tale needs a good old-fashioned villain</p></strong>
+<strong><p id = "AuthorDisplay">Moriarty</p></strong>
+<button class="btn-lg" onclick="newQuote()">New Quote!</button><br><br>
+</div>
+
+
+</html>
